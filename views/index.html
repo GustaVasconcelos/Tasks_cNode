@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Tasks</title>
+    <link  href="/public/tasks.css" rel="stylesheet"/>
+</head>
+<body>
+    <div id="container-tarefas">
+        <div id="tarefas-titulo">
+            <h1>Cadastre suas tarefas</h1>
+        </div>
+        <form  action="/tasks"method="post" id="add-tarefas">
+            <input id="inputTarefa" type="text" placeholder="Insira tarefa" name="tarefa" required>
+            <input id="inputSubmit"type="submit" name="acao" value="Adicionar"></input>
+        </form>
+        <div id="tarefas"> 
+            <% for(let i = 0; i < tarefasList.length; i++){ %>
+                <div class="tarefas-criadas">
+                    <div class="tarefas-itens">
+                        <h4><%= tarefasList[i] %></h4>
+                    </div>
+                    <div class="deletar">
+                        <a href="/deletar/<%= i %>">x</a>
+                    </div>
+                </div>
+            <%} %>
+        </div>
+    </div>
+</body>
+</html>
